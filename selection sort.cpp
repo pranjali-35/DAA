@@ -15,7 +15,7 @@ void display(vector<int> v, int n, int compare_count, int swap_count){
     cout << "Number of swapping : " << swap_count << endl;
 }
 
-void BubbleSort(vector<int> v, int n){
+void SelectionSort(vector<int> v, int n){
     int compare_count = 0, swap_count = 0;
     for(int i = 0 ; i < n-1 ; i++){
         int min = i;
@@ -36,7 +36,7 @@ int main()
     vector<int> v(n);
     for(int i = 0 ; i < n ; i++)
         cin >> v[i];
-    BubbleSort(v,n);
+    SelectionSort(v,n);
 
     return 0;
 }
