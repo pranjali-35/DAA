@@ -3,13 +3,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void display(vector<int> v, int n){
+void display(vector<int> v){
+    int n = v.size();
     for(int i = 0 ; i < n ; i++){
         cout << v[i] << " ";
     }cout << endl;
 }
 
-void merge(int n, vector<int> &v, int lb, int mid, int ub){
+void merge(vector<int> &v, int lb, int mid, int ub){
+    int n = v.size();
     vector<int> b(n);
     int i = lb, j = mid+1, k = lb;
     while(i <= mid && j <= ub){
@@ -37,12 +39,12 @@ void merge(int n, vector<int> &v, int lb, int mid, int ub){
     
 }
 
-void mergeSort(int n,vector<int> &v, int lb, int ub){
+void mergeSort(vector<int> &v, int lb, int ub){
     if(lb < ub){
         int mid = (lb+ub)/2;
-        mergeSort(n,v, lb, mid);
-        mergeSort(n,v, mid+1, ub);
-        merge(n,v, lb, mid, ub);
+        mergeSort(v, lb, mid);
+        mergeSort(v, mid+1, ub);
+        merge(v, lb, mid, ub);
     }
 }
 
@@ -53,8 +55,8 @@ int main()
     vector<int> v(n);
     for(int i = 0 ; i < n ; i++){
         cin >> v[i];
-    }mergeSort(n,v,0,n-1);
-    display(v,n);
+    }mergeSort(v,0,n-1);
+    display(v);
 
     return 0;
 }
